@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+로그인한 정보다
+
+<table>
+    <tr>
+        <th>아이디</th>
+        <th>비밀번호</th>
+        <th>이메일</th>
+        <th>전화번호</th>
+    </tr>
+
+    <tr>
+        <td th:text="${logininfo.memberId}"></td>
+        <td th:text="${logininfo.memberPassword}"></td>
+        <td th:text="${logininfo.memberEmail}"></td>
+        <td th:text="${logininfo.memberPhoneNum}"></td>
+    </tr>
+</table>
+
+<a href="/member/update">수정하기</a>
+
+<a th:href="@{|/member/delete/${logininfo.memberId}|}">삭제하기</a>
+
+<br>
+
+<a href="/shop/save">창업하기</a>
+
+
+</body>
+</html>

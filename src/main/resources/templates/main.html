@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>나는 메인 화면 이다 </h1>
+
+<br>
+
+로그인한 아이디 (session값)
+<p th:text="${session.loginmemberId}"></p>
+
+<br>
+<br>
+
+<br>
+
+
+
+
+<!-- 세션에 "username" 속성이 없으면 로그인, 회원가입 링크 표시 -->
+<div th:unless="${session['loginmemberId']}">
+    <a href="/member/login">로그인</a>
+    <a href="/member/save">회원가입</a>
+</div>
+
+<!-- 세션에 "username" 속성이 있으면 로그아웃 링크 표시 -->
+<div th:if="${session['loginmemberId']}">
+    <a href="/member/logout">로그아웃</a>
+</div>
+
+<br>
+<br>
+<a href="/shop">가게 보기</a>
+<br>
+<br>
+<a th:href="@{/member/memberlist}">회원 모두 보기</a>
+
+<a th:href="@{|/member/${session.loginmemberId}|}">내 정보 보기</a>
+
+
+
+</body>
+</html>

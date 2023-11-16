@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>가게번호</th>
+        <th>가게이름</th>
+        <th>주인장</th>
+    </tr>
+
+    <tr th:each="yayaya: ${shopList}">
+        <td>
+            <a th:href="@{/shop/{shopId}(shopId=${yayaya.shopId})}" th:text="${yayaya.shopId}"></a>
+        </td>
+        <td>
+            <a th:text="${yayaya.shopName}" th:href="@{/shop/{shopId}(shopId=${yayaya.shopId})}"></a>
+        </td>
+        <td th:text="${yayaya.memberId}"></td>
+    </tr>
+</table>
+
+
+
+
+
+</body>
+</html>
