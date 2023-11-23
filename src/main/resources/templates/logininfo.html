@@ -32,6 +32,29 @@
 
 <a href="/shop/save">창업하기</a>
 
+<br>
+
+<h1>내가 관리하는 가게</h1>
+
+<table>
+    <tr>
+        <th>가게 번호</th>
+        <th>가게 이름</th>
+        <th>가게 전화번호</th>
+        <th>가게 주소</th>
+    </tr>
+
+    <tr th:each="tatata : ${loginshopinfo}">
+        <td th:text="${tatata.shopId}"></td>
+        <td th:text="${tatata.shopName}"></td>
+        <td th:text="${tatata.shopPhoneNum}"></td>
+        <td th:text="${tatata.shopAddress}"></td>
+    </tr>
+</table>
+
+<a href="/shop">가게 전부 보기</a>
+<a href="/">메인 화면</a>
+
 
 </body>
 </html>

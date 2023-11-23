@@ -2,7 +2,9 @@ package com.secret.dessertmap.controller;
 
 import com.secret.dessertmap.dto.MemberDTO;
 import com.secret.dessertmap.entity.MemberEntity;
+import com.secret.dessertmap.entity.ShopEntity;
 import com.secret.dessertmap.service.MemberService;
+import com.secret.dessertmap.service.ShopService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,8 @@ public class MemberController {
     private final MemberService memberService;
     // final은 해당 변수가 한번 초기화되면 다시 할당할 수 없다는 뜻
     // memberservice 객체가 한번 초기화되면 다른 서비스 객체로 교체되지 않도록 보장하기 위함
+
+    private final ShopService shopService;
 
 
     // CRUD에서 C 부분
@@ -101,6 +105,13 @@ public class MemberController {
 
         model.addAttribute("logininfo", memberEntity);
 
+
+
+        List<ShopEntity> shopEntity = shopService.findByMemeberId(memberId);
+
+        model.addAttribute("loginshopinfo", shopEntity);
+
+
         return "logininfo";
     }
 
@@ -120,6 +131,7 @@ public class MemberController {
 
         return "update";
     }
+
 
     @PostMapping("/member/update")
     public String update(@ModelAttribute MemberEntity memberEntity){

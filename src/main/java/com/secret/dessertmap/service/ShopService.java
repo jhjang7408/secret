@@ -14,6 +14,16 @@ public class ShopService {
 
     private final ShopRepository shopRepository;
 
+
+    // memberController에서 로그인 아이디에 해당하는 가게들 한번에 꺼내기
+    public List<ShopEntity> findByMemeberId(String memberId){
+        List<ShopEntity> shopEntity = shopRepository.findByMemberId(memberId);
+        return shopEntity;
+    }
+
+
+
+
     public List<ShopEntity> findAll(){
         List<ShopEntity> shopEntityList = shopRepository.findAll();
 
