@@ -38,4 +38,16 @@ public class ShopService {
         Optional<ShopEntity> shopEntity = shopRepository.findById(shopId);
         return shopEntity.get();
     }
+
+
+    public void update(ShopEntity shopEntity){
+        shopRepository.save(shopEntity);
+    }
+
+
+    public void delete(int shopId){
+        shopRepository.deleteById(shopId);
+    }
+
+
 }

@@ -29,7 +29,8 @@
 
 <!-- 세션에 "username" 속성이 있으면 로그아웃 링크 표시 -->
 <div th:if="${session['loginmemberId']}">
-    <a href="/member/logout">로그아웃</a>
+    <a href="/member/logout">로그아웃</a> <br>
+    <a th:href="@{|/member/${session.loginmemberId}|}">내 정보 보기</a>
 </div>
 
 <br>
@@ -39,7 +40,7 @@
 <br>
 <a th:href="@{/member/memberlist}">회원 모두 보기</a>
 
-<a th:href="@{|/member/${session.loginmemberId}|}">내 정보 보기</a>
+
 
 
 

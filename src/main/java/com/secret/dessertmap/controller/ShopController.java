@@ -52,4 +52,33 @@ public class ShopController {
         return "shopdetail";
     }
 
+
+
+    @GetMapping("/shop/update/{shopId}")
+    public String shopupdateForm(@PathVariable int shopId, Model model){
+        ShopEntity shopEntity = shopService.findById(shopId);
+
+        model.addAttribute("shopupdate", shopEntity);
+
+        return "shopupdate";
+    }
+
+    @PostMapping("/shop/update")
+    public String shopupdate(@ModelAttribute ShopEntity shopEntity, Model model){
+        shopService.update(shopEntity);
+
+        return "redirect:/member/" + shopEntity.getMemberId();
+    }
+
+
+
+    @GetMapping("/shop/delete/{shopId}")
+    public String shopdelete(@PathVariable int shopId, HttpSession session){
+        shopService.delete(shopId);
+
+        return "redirect:/member/" + session.getAttribute("loginmemberId");
+    }
+
+
+
 }

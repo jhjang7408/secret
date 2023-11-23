@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/shop/update" method="post">
+    가게 번호: <input type="text" th:value="${shopupdate.shopId}" name="shopId" readonly><br>
+    가게 이름: <input type="text" th:value="${shopupdate.shopName}" name="shopName"> <br>
+    주인장: <input type="text" th:value="${session.loginmemberId}" name="memberId" readonly><br>
+    전화번호: <input type="tel" th:value="${shopupdate.shopPhoneNum}" name="shopPhoneNum"><br>
+    주소: <input type="text" th:value="${shopupdate.shopAddress}" name="shopAddress"><br>
+    <input type="submit" value="가게 정보 수정">
+</form>
+
+<br>
+
+<a href="/shop">가게 전부 보기</a><br>
+<a th:href="@{|/member/${session.loginmemberId}|}">내 정보</a>
+
+</body>
+</html>
