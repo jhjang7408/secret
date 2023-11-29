@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequiredArgsConstructor    // final 같은 생성자를 자동으로 생성해줌
+@RequiredArgsConstructor    // final 생성자를 자동으로 생성해줌
 public class ShopController {
 
     private final ShopService shopService;

@@ -24,4 +24,5 @@ public class DessertEntity {
     @Column
     private int dessertPrice;
 
+
 }
