@@ -25,9 +25,45 @@
         <td th:text="${shopdetail.shopAddress}"></td>
     </tr>
 </table>
+<br>
+<br>
+<br>
+<br>
 
 <h2>메 뉴</h2>
 
+<table>
+    <tr>
+        <th>간식 이름</th>
+        <th>가격</th>
+    </tr>
+
+    <tr th:each="adadad: ${menu}">
+        <td th:text="${adadad.dessertName}"></td>
+        <td th:text="${adadad.dessertPrice}">원</td>
+    </tr>
+</table>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<div th:if="${session['loginmemberId'] == shopdetail.memberId}">
+    <form action="/dessert/save" method="post">
+        <input type="hidden" th:value="${shopdetail.shopId}" name="shopId">
+        간식 이름: <input type="text" name="dessertName">
+        간식 가격: <input type="text" name="dessertPrice">
+        <input type="submit" value="메뉴 등록">
+    </form>
+</div>
+<br>
+<a th:href="@{|/member/${session.loginmemberId}|}">내 정보 보기</a>
 <a href="/shop">가게 전부 보기</a>
 
 </body>

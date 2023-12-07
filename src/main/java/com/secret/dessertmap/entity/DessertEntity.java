@@ -16,7 +16,7 @@ public class DessertEntity {
     private int dessertId;
 
     @Column
-    private String shopId;
+    private int shopId;
 
     @Column
     private String dessertName;

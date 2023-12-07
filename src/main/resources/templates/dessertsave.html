@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/dessert/save" method="post">
+    간식 번호: <input type="hidden" name="dessertId"> <br>
+    가게 번호: <input type="hidden" name="shopId"><br>
+    간식 이름: <input type="text" name="dessertName"><br>
+    간식 가격: <input type="text" name="dessertPrice"><br>
+    <input type="submit" value="가게 등록">
+</form>
+
+
+</body>
+</html>

@@ -47,8 +47,12 @@
     </tr>
 
     <tr th:each="tatata : ${loginshopinfo}">
-        <td th:text="${tatata.shopId}"></td>
-        <td th:text="${tatata.shopName}"></td>
+        <td>
+            <a th:href="@{/shop/{shopId}(shopId=${tatata.shopId})}" th:text="${tatata.shopId}"></a>
+        </td>
+        <td>
+            <a th:href="@{/shop/{shopId}(shopId=${tatata.shopId})}" th:text="${tatata.shopName}"></a>
+        </td>
         <td th:text="${tatata.shopPhoneNum}"></td>
         <td th:text="${tatata.shopAddress}"></td>
         <td>

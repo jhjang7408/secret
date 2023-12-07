@@ -1,6 +1,8 @@
 package com.secret.dessertmap.controller;
 
+import com.secret.dessertmap.entity.DessertEntity;
 import com.secret.dessertmap.entity.ShopEntity;
+import com.secret.dessertmap.service.DessertService;
 import com.secret.dessertmap.service.ShopService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -19,9 +21,12 @@ public class ShopController {
 
     private final ShopService shopService;
 
+    private final DessertService dessertService;
+
     @GetMapping("/shop")
     public String ShopList(Model model){
         List<ShopEntity> shopList = shopService.findAll();
+
         model.addAttribute("shopList", shopList);
 
         return "shoplist";
@@ -48,6 +53,10 @@ public class ShopController {
         ShopEntity shopEntity = shopService.findById(shopId);
 
         model.addAttribute("shopdetail", shopEntity);
+
+        List<DessertEntity> dessertList = dessertService.findByShopId(shopId);
+
+        model.addAttribute("menu", dessertList);
 
         return "shopdetail";
     }
