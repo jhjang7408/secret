@@ -36,11 +36,17 @@
     <tr>
         <th>간식 이름</th>
         <th>가격</th>
+        <th th:if="${session['loginmemberId'] == shopdetail.memberId}"></th>
     </tr>
 
     <tr th:each="adadad: ${menu}">
         <td th:text="${adadad.dessertName}"></td>
-        <td th:text="${adadad.dessertPrice}">원</td>
+        <td th:text="${adadad.dessertPrice}"></td>
+        <td th:if="${session['loginmemberId'] == shopdetail.memberId}">
+            <form th:action="@{|/dessert/delete/${adadad.dessertId}|}" method="post">
+                <input type="submit" value="X">
+            </form>
+        </td>
     </tr>
 </table>
 

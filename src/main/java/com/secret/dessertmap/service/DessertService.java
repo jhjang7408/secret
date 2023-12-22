@@ -26,6 +26,17 @@ public class DessertService {
         dessertRepository.save(dessertEntity);
     }
 
+    public void delete(int dessertId){
+        dessertRepository.deleteById(dessertId);
+    }
+
+    public DessertEntity findByDessertId(int dessertId){
+
+        DessertEntity dessertEntity = dessertRepository.findByDessertId(dessertId);
+
+        return dessertEntity;
+    }
+
 
 
 }

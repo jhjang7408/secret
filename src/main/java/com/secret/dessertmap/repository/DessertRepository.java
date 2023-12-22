@@ -9,4 +9,7 @@ public interface DessertRepository extends JpaRepository<DessertEntity, Integer>
 
     List<DessertEntity> findByShopId(int shopId);
 
+    void deleteById(int dessertId);
+
+   DessertEntity findByDessertId(int dessertId);
 }
